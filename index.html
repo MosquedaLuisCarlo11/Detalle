@@ -3,20 +3,33 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Peraton Scroll Website</title>
+    <title>Propuesta de San Valentin</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
-
+<header>
+    <div class="audio-toggle">
+        <div class="toggle-label">
+            <img src="images/sonido.jpg" alt="speaker">
+        </div>
+        <div class="toggle-switch">
+            <input type="checkbox" id="audio-toggle">
+            <label for="audio-toggle"></label>
+        </div>
+        <audio id="audioElement">
+            <source src="Reik - Pero Te Conocí.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+</header>
 <body>
     <div class="dots"></div>
 <main>
     <section class="panel active" data-bg="images/Slide1.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="BIENVENIDA A NUESTRA PROPÍA HISTORIA"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Donde este sitio narra una de las cientos de experiencias juntos vividas, donde cada una ha dejado su huellita de ratita marcada en nuestros corazones. Espero seguir escribiendo miles de historias más al lado de mi mejor amiga, confidente, compañera, novia y algún día, mi futura esposita.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
@@ -24,10 +37,9 @@
     <section class="panel" data-bg="images/Slide2.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CAPITULO 1 (La librería)"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Aunque nuestro primer encuentro fue en ELC, donde una joven hermosa y carismática empezó a hacerme bullying del bueno, jejeje, fue hasta el día en la librería donde hicimos un click más especial. El haber compartido nuestros gustos, nuestros gustos musicales, aspectos de nuestra familia y hasta nuestros planes a futuro nos hizo sentirnos, de alguna manera, unidos. En lo personal, lo que me enamoró ese día fue ver tu interés y el gran equipo que podíamos llegar a ser. No solo por haber tenido la dicha de hacer algo que me apasiona y necesitaba hacer (programar), sino también por poder visualizarme contigo, por tantas cosas en común y ese interés tan bonito.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
@@ -35,10 +47,9 @@
     <section class="panel" data-bg="images/Slide3.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CAPITULO 2 (Nuestro viaje a Bryce Canyon)"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Aquí es donde la cosa se empieza a poner aún mejor. Este viaje por parte de ELC fue una oportunidad increíble para poder sentirme más enamorado de ti. Podrían haber sido esas risas compartidas en el camino, la comodidad de irte abrazando, la emoción de estar con quien nos gusta… o mayormente por la química tan especial que sentimos en el viaje, donde todo salió tan natural y lo hacía sentir mágico. Hasta yo me preguntaba: “¿Cómo es posible que encontré a alguien tan parecida a mí, pero con una esencia que la hace única?”. Era tu sonrisa, tus gustos musicales, tu visión de la vida, tu manera de mostrar afecto y tus sentimientos los que me hechizaron ese día.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
@@ -46,10 +57,9 @@
     <section class="panel" data-bg="images/Slide4.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CAPITULO 3 (La propuesta en el templo)"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Este será un día que nunca olvidaré, porque fue frente al templo donde no solo hablamos y soñamos con una vida juntos, sino que dimos el primer paso para formalizar nuestra relación. A pesar de estar seguro de que eras tú con quien quería compartir mi vida, estaba nervioso por tu respuesta, jejeje, más por lo hermosa que te veías y ese miedo de que me batearas. Pero fue esa tranquilidad que tú me compartiste ese día la que calmó mi alma. Tus palabras al responder a mi pregunta fueron: “Sí, acepto”, lo que permitió el comienzo de toda esta historia juntos. Sé todo lo que hemos pasado, lo difícil que ha sido, pero aun sabiendo todo eso, volvería a ese día y volvería a pedirte escribir nuestra historia, porque tu amor, las hermosas historias juntos y todo ese potencial divino que tenemos me hacen sentir en mi lugar seguro. Y por ende, quiero hacerte sentir la mujer más amada y honrada.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
@@ -57,21 +67,19 @@
     <section class="panel" data-bg="images/Slide5.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CAPITULO 4 (Toda una semana de locos)"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Lo que para muchos hubiera sido la semana más difícil de su vida por toda la situación de la casa (cuando se inundó y tuvieron que reemplazar el piso), para mí, el haberte tenido fue lo que volvió esa semana única. Cada día cocinando juntos, esas noches durmiendo abrazaditos, esas risas compartidas con las niñas, con Teru y con Naho, esas retitas de ping-pong… y sobre todo, el sentirme tan bien acompañado a tu lado fue lo que hizo esos días mágicos.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
 
-    <section class="panel" data-bg="images/Slide6.png">
+    <section class="panel" data-bg="images/Slide6.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CAPITULO 5 (Una semana llena de memorias)"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Para mí, esta es la definición de una vida que quiero a tu lado. Cada vez que cocinamos, esa tardecita pintando juntitos, ese finde con tu cálida familia donde la comidita nos quedó riquísima, esa tarde viendo el partido fue icónica, esas pláticas fueron memorables… y sobre todo, tu compañía no fue la cereza del pastel: lo fue todo. Haciéndome querer una vida a tu lado, donde quiero que cada semana se vea así.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
@@ -79,10 +87,9 @@
     <section class="panel" data-bg="images/Slide7.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CAPITULO 6 (Viaje a St George)"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Este viaje fue de los mejores que hemos hecho. Un viaje donde, a pesar de haber ido acompañado de buenas amistades y personas nuevas, fuiste tú quien hizo —y sé que siempre hará— esta clase de viajes icónicos. Destaco esa nochecita llena de amor (literalmente, jejeje) en el hotel, esos rides en el racer, esa travesía en el paddleboard donde casi nos ahogamos por la rata, jejeje (fue mi culpa por disque ser Superman). Y sobre todo, esa compañía que hacía mágico cada minuto.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
@@ -90,21 +97,19 @@
     <section class="panel" data-bg="images/Slide8.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CAPITULO 7 (Idas al templito)"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Este día, como cada uno de los que hemos ido al templo juntitos, ha sido de los más hermosos porque es lo más cerca que estamos de nuestro Padre Celestial, y a la vez, cuando más siento esa confirmación de que somos la persona correcta el uno para el otro. Todavía recuerdo esa primera vez que fuimos al templo juntos: esos nervios y emoción que se te notaban, esa sensación cálida del Espíritu que sentía… fue lo que volvió esa noche tan íntima y especial para mí. El haberte podido bautizar y que al salir hayamos orado y compartido nuestra experiencia fue algo tan reconfortante por todo ese gozo que se podía sentir.            </p>
             <button class="next-btn">Next →</button>
         </div>
     </section>
 
-    <section class="panel" data-bg="images/juntitos.png">
+    <section class="panel" data-bg="images/Slide9.jpg">
         <div class="overlay"></div>
         <div class="content">
-            <h1 class="scroll-text" data-text="WELCOME TO OUR STORY"></h1>
+            <h1 class="scroll-text" data-text="CONTINUARA"></h1>
             <p class="scroll-text-secondary">
-                Scroll down to see smooth transitions and animated text.
-            </p>
+                Esto no queda aquí, mi ratita chula. Tenemos mucho que seguir escribiendo… y por algo debemos empezar, y debe ser igual de icónico…            </p>
             <a href="aceptas.html" class="next-btn">Next →</a>
         </div>
     </section>
