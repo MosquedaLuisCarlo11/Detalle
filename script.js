@@ -1,6 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ================================
+  // 🎵 MUSIC TOGGLE FIX
+  // ================================
+  const audioToggle = document.getElementById("audio-toggle");
+  const audioElement = document.getElementById("audioElement");
+
+  if (audioToggle && audioElement) {
+    audioToggle.addEventListener("change", () => {
+      if (audioToggle.checked) {
+        audioElement.play().catch(err => {
+          console.log("Autoplay blocked:", err);
+        });
+      } else {
+        audioElement.pause();
+      }
+    });
+  }
+
+  // ================================
   // GLOBAL VARIABLES
   // ================================
   let currentIndex = 0;
@@ -10,9 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const dotsContainer = document.querySelector(".dots");
 
   // ================================
-  // AUTO-GENERATE DOTS (12+ Works)
+  // DOTS (MAX 10)
   // ================================
-  const maxDots = 11;
+  const maxDots = 10;
   const dotCount = Math.min(maxDots, panels.length);
 
   for (let i = 0; i < dotCount; i++) {
@@ -28,22 +46,64 @@ document.addEventListener("DOMContentLoaded", () => {
   const dots = document.querySelectorAll(".dot");
 
   // ================================
-  // LOAD BACKGROUNDS FROM data-bg=""
+  // LOAD BACKGROUNDS
   // ================================
   panels.forEach(panel => {
     const bg = panel.getAttribute("data-bg");
 
     if (bg) {
-      console.log("Loading image:", bg);
-      panel.style.backgroundImage = `url('${bg}')`;
+      panel.style.backgroundImage = `url("${bg}")`;
+      panel.style.backgroundSize = "cover";
+      panel.style.backgroundPosition = "center";
+      panel.style.backgroundRepeat = "no-repeat";
     }
   });
+
+  // ================================
+  // ✨ TEXT ANIMATION FUNCTION
+  // ================================
+  function animateText(panel) {
+    const title = panel.querySelector(".scroll-text");
+    const secondary = panel.querySelector(".scroll-text-secondary");
+
+    if (!title) return;
+
+    // Reset animation
+    title.innerHTML = "";
+    secondary?.classList.remove("visible");
+
+    const text = title.dataset.text;
+    if (!text) return;
+
+    // Split letters
+    title.innerHTML = text
+      .split("")
+      .map(letter =>
+        `<span>${letter === " " ? "&nbsp;" : letter}</span>`
+      )
+      .join("");
+
+    const spans = title.querySelectorAll("span");
+
+    // Animate letters
+    spans.forEach((span, i) => {
+      setTimeout(() => {
+        span.classList.add("visible");
+      }, i * 50);
+    });
+
+    // Animate secondary after title
+    if (secondary) {
+      setTimeout(() => {
+        secondary.classList.add("visible");
+      }, spans.length * 50 + 300);
+    }
+  }
 
   // ================================
   // SHOW ACTIVE SLIDE
   // ================================
   function showSlide(index) {
-
     panels.forEach(panel => panel.classList.remove("active"));
     dots.forEach(dot => dot.classList.remove("active"));
 
@@ -52,17 +112,21 @@ document.addEventListener("DOMContentLoaded", () => {
     if (dots[index]) {
       dots[index].classList.add("active");
     }
+
+    // Trigger text animation
+    animateText(panels[index]);
   }
 
-  // Start on Slide 0
+  // ================================
+  // INIT FIRST SLIDE
+  // ================================
   showSlide(currentIndex);
 
   // ================================
-  // ONE SCROLL = ONE SLIDE (Peraton Style)
+  // ONE SCROLL = ONE SLIDE
   // ================================
   window.addEventListener("wheel", (event) => {
     if (isScrolling) return;
-
     isScrolling = true;
 
     if (event.deltaY > 0) {
@@ -75,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       isScrolling = false;
-    }, 1200);
+    }, 1000);
   });
 
   // ================================
@@ -89,69 +153,17 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ================================
-  // BUTTON NAVIGATION (NEXT FRAME)
+  // BUTTON NAVIGATION
   // ================================
   const nextButtons = document.querySelectorAll(".next-btn");
 
   nextButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-
-      if (currentIndex < panels.length - 1) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-      }
+      currentIndex =
+        currentIndex < panels.length - 1 ? currentIndex + 1 : 0;
 
       showSlide(currentIndex);
     });
-  });
-
-  // ================================
-  // SCROLL TEXT LETTER ANIMATION
-  // ================================
-  const textElements = document.querySelectorAll(".scroll-text");
-  const secondaryText = document.querySelector(".scroll-text-secondary");
-
-  textElements.forEach((textElement, index) => {
-
-    const text = textElement.dataset.text;
-    if (!text) return;
-
-    // Split into letters
-    textElement.innerHTML = text
-      .split("")
-      .map(letter => `<span>${letter === " " ? "&nbsp;" : letter}</span>`)
-      .join("");
-
-    // Observer animation
-    const observer = new IntersectionObserver(entries => {
-
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-
-          const letters = entry.target.querySelectorAll("span");
-
-          letters.forEach((span, i) => {
-            setTimeout(() => {
-              span.classList.add("visible");
-            }, i * 50);
-          });
-
-          // Secondary fade-in
-          if (index === textElements.length - 1 && secondaryText) {
-            setTimeout(() => {
-              secondaryText.classList.add("visible");
-            }, letters.length * 50 + 300);
-          }
-
-          observer.unobserve(entry.target);
-        }
-      });
-
-    }, { threshold: 0.5 });
-
-    observer.observe(textElement);
-
   });
 
 });
